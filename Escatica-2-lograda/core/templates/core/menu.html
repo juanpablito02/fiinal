@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Escalerita y la Serpiente</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles-menu.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url('{% static '\core\images\fondo-escatica.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img class="img-logo" src='{% static "\core\images\titulo-logo.png" %}' alt="">
+        <nav>
+            <ul class="menu">
+                <li><a href="/">🏠 Inicio</a></li>
+                <li><a href="/tablero/">🎮 Probar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <h1>🎲 ¡Bienvenido al juego matemático más divertido! 🚀</h1>
+            <p class="subtitle">Aprende y diviértete resolviendo operaciones matemáticas para avanzar en el tablero.</p>
+        
+        <div class="botones">
+            <a href="/login/" class="btn">🔑 Iniciar Sesión</a>
+            <a href="/nosotros/" class="btn">📜Sobre nosotros</a>
+        </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">➕</div>
+                <h3>Matematicas Divertidas</h3>
+                <p>Aprende operaciones basicas de manera entretenida</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Sistema de logros</h3>
+                <p>¡Consigue medallas por tus logros!</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍🏫</div>
+                <h3>Modo Educativo</h3>
+                <p>Perfecto para estudiantes de primaria</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 - La Escalerita y la Serpiente | Un juego para aprender matemáticas 🚀</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📱</a>
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">🐦</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'core/js/scripts-menu.js' %}"></script>
+</body>
+</html>
+

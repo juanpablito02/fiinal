@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/core/css/styles-login.css' %}"/>
+    <title>Inicio de Sesión | Registro</title>
+</head>
+
+<body style="background-image: url('{% static '\core\images\fondo-escatica.jpg' %}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    <div class="container" id="container">
+
+        <!-- Formulario de Registro -->
+        <div class="form-container sign-up">
+            <form id="registerForm" method="POST" action="{% url 'login_register' %}">
+                {% csrf_token %}
+                <input type="hidden" name="registro" value="1">
+                <h1>Crear Cuenta</h1>
+
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="correo" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="confirmPassword" placeholder="Confirmar Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+
+        <!-- Formulario de Inicio de Sesión -->
+        <div class="form-container sign-in">
+            <form id="loginForm" method="POST" action="{% url 'login_register' %}">
+                {% csrf_token %}
+                <input type="hidden" name="inicio_sesion" value="1">
+                <h1>Iniciar Sesión</h1>
+
+                <input type="email" name="correo" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <a href="#">¿Olvidaste la contraseña?</a>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+        
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>¡Bienvenido!</h1>
+                    <button class="hidden" id="login">Iniciar Sesión</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>¡Hola, Amigo!¡Bienvenido de nuevo!</h1>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de mensajes -->
+    {% if modal_message %}
+    <div id="customModal" class="modal-overlay{% if modal_message %} show{% endif %}">
+        <div class="modal-content message {{ modal_message.type }}">
+            <p>{{ modal_message.text }}</p>
+    
+            {% if modal_message.redirect %}
+                <input type="hidden" id="redirectAfterModal" value="1">
+            {% endif %}
+            <div class="modal-buttons">
+                <button id="modalCancelBtn">Cancelar</button>
+                <button id="modalContinueBtn">Continuar</button>
+        </div>
+    </div>
+    {% endif %}
+
+
+    <script type="text/javascript" src="{% static '/core/js/script.js' %}"></script>
+</body>
+</html>
